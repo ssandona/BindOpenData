@@ -1,0 +1,140 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="csvReading.City"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True"
+    Name="this">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Open Veneto" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Name="Comune" Text="{Binding Attuale.Nome}" FontSize="{Binding Attuale.FontSize}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="0.5*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!--Prima colonna-->
+            <TextBlock Grid.Row="0" Name="Aggiornamento" Text="{Binding Attuale.Anno}" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="10,0" TextWrapping="Wrap" Text="Cod. Istat" FontSize="20" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="10,0" TextWrapping="Wrap" Text="Abitanti" FontSize="30" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,0" TextWrapping="Wrap" Name="Percentuale" Text="{Binding Attuale.Percentuale}" FontSize="22" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Margin="10,0" TextWrapping="Wrap" Text="Nati" FontSize="30" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="5" Grid.Column="0" Margin="10,0" TextWrapping="Wrap" Text="Tasso Natalità" FontSize="30" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="6" Grid.Column="0" Margin="10,0" TextWrapping="Wrap" Text="Morti" FontSize="30" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="7" Grid.Column="0" Margin="10,0" TextWrapping="Wrap" Text="Tasso Mortaltà" FontSize="30" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="8" Grid.Column="0" Margin="10,0" TextWrapping="Wrap" Text="Immigrati" FontSize="30" VerticalAlignment="Center" />
+            <TextBlock Grid.Row="9" Grid.Column="0" Margin="10,0" TextWrapping="Wrap" Text="Emigrati" FontSize="30" VerticalAlignment="Center" />
+
+            <!--Seconda colonna-->
+            <!--No first textblock-->
+            <TextBlock Grid.Row="1" Name="Istat" Text="{Binding Attuale.Istat}" Grid.Column="1" Grid.ColumnSpan="2" Margin="10,0" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Name="NumAbitanti" Text="{Binding Attuale.NumAbitanti}" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" FontSize="30" VerticalAlignment="Center"/>
+            <!--No fifth textblock-->
+            <TextBlock Grid.Row="4" Name="Nati" Text="{Binding Attuale.Nati}" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" FontSize="30" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="5" Name="TassoNatalita" Text="{Binding Attuale.TassoNatalita}" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" FontSize="30" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="6" Name="Morti" Text="{Binding Attuale.Morti}" Grid.Column="1" Margin="10,0"  TextWrapping="Wrap" FontSize="30" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="7" Name="TassoMortalita" Text="{Binding Attuale.TassoMortalita}" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" FontSize="30" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="8" Name="Immigrati" Text="{Binding Attuale.Immigrati}" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" FontSize="30" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="9" Name="Emigrati" Text="{Binding Attuale.Emigrati}" Grid.Column="1" Margin="10,0" TextWrapping="Wrap" FontSize="30" VerticalAlignment="Center"/>
+
+            <!--Terza colonna-->
+            <Button  Grid.Column="2" Margin="0,-5" Grid.Row="2" BorderBrush="{x:Null}" Command="{Binding VaiAGrafico}" CommandParameter="popolazione" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/graph.png" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button  Grid.Column="2" Margin="0,-5" Grid.Row="4" BorderBrush="{x:Null}" Command="{Binding VaiAGrafico}" CommandParameter="nati" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/graph.png" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button  Grid.Column="2" Margin="0,-5" Grid.Row="5" BorderBrush="{x:Null}" Command="{Binding VaiAGrafico}" CommandParameter="natalita" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/graph.png" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button  Grid.Column="2" Margin="0,-5" Grid.Row="6" BorderBrush="{x:Null}" Command="{Binding VaiAGrafico}" CommandParameter="morti" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/graph.png" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button  Grid.Column="2" Margin="0,-5" Grid.Row="7" BorderBrush="{x:Null}" Command="{Binding VaiAGrafico}" CommandParameter="mortalita" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/graph.png" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button  Grid.Column="2" Margin="0,-5" Grid.Row="8" BorderBrush="{x:Null}" Command="{Binding VaiAGrafico}" CommandParameter="iscritti" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/graph.png" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+            <Button  Grid.Column="2" Margin="0,-5" Grid.Row="9" BorderBrush="{x:Null}" Command="{Binding VaiAGrafico}" CommandParameter="cancellati" Foreground="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Images/graph.png" Stretch="Uniform">
+                        <ImageBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5"/>
+                        </ImageBrush.RelativeTransform>
+                    </ImageBrush>
+                </Button.Background>
+            </Button>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,98 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="csvReading.Info"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="Open Veneto" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="informazioni" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer VerticalScrollBarVisibility ="Hidden" HorizontalScrollBarVisibility="Disabled">
+                <Grid Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Image Name="Img" Grid.Row="0" Source="/Images/open_data.png" />
+                    <TextBlock Name="Testo" Grid.Row="1" Margin="0,-70,0,0">
+                		<Run FontWeight="Bold" Foreground="#FF3EAAE8" FontSize="40" Text="Open Data"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="Gli  &quot;Open Data&quot;  sono tutti quei dati"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="resi   pubblici   da   un   ente   senza"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="restrizioni  di  copyright  o  licenze. "/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="Sono  utilizzabili   ed   accessibili   da"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="chiunque, questo archivio anagrafico"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="proviene dal sito &quot;dati.veneto.it&quot;."/>
+                		<LineBreak/>
+                		<LineBreak/>
+                		<Run FontWeight="Bold" Foreground="#FF3EAAE8" FontSize="40" Text="Open Veneto"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="Questa app nasce senz alcuno scopo"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="di    lucro,    è    perciò    esente    da"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="pubblicità   ed   è  gratuita.   È   stata"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="sviluppata  da   Luca  Favorido   (del"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="gruppo   &quot;No1&quot;)    nell' ambito    del"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="progetto di Ingegneria del Software"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="(uno  dei  corsi  tenuti  dal  docente"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="Agostino  Cortesi)  dell'Università  di"/>
+                		<LineBreak/>
+                		<Run FontSize="28" Text="Ca' Foscari."/>
+                		<LineBreak/>
+                    	<Run FontWeight="Bold" Foreground="#FF3EAAE8" FontSize="40" Text="Dati"/>
+                    	<LineBreak/>
+                    	<Run FontSize="28" Text="I dati qui presenti, vengono espressi,"/>
+                    	<LineBreak/>
+                    	<Run FontSize="28" Text="anche in forma grafica  e  rielaborati"/>
+                    	<LineBreak/>
+                        <Run FontSize="28" Text="come avviene per:"/>
+                    	<LineBreak/>
+                    	<Run FontSize="28" Foreground="#FF3EAAE8" Text="Tasso di Natalità  " />
+                    	<Run FontSize="28" Text=" -  indica il numero"/>
+                    	<LineBreak/>
+                    	<Run FontSize="28" Text="medio di nati ogni 1000 abitanti."/>
+                    	<LineBreak/>
+                    	<Run FontSize="28" Foreground="#FF3EAAE8" Text="Tasso di Mortalità "/>
+                    	<Run FontSize="28" Text=" - indica il numero"/>
+                    	<LineBreak/>
+                    	<Run FontSize="28" Text="medio di morti ogni 1000 abitanti."/>
+                    </TextBlock>
+                </Grid>
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
