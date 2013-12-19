@@ -1,4 +1,5 @@
-﻿using Microsoft.Phone.Controls;
+﻿using csvReading.Model;
+using Microsoft.Phone.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows;

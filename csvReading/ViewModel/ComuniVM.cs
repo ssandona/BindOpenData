@@ -129,13 +129,13 @@ namespace csvReading.ViewModel
         public ComuniVM()
         {
             comuni = new ObservableCollection<Comune>();
-            comuniBelluno = CsvReader.Instance.ComuniDaProvincia("bl");
+            /*comuniBelluno = CsvReader.Instance.ComuniDaProvincia("bl");
             comuniPadova = CsvReader.Instance.ComuniDaProvincia("pd");
             comuniTreviso = CsvReader.Instance.ComuniDaProvincia("tv");
             comuniRovigo = CsvReader.Instance.ComuniDaProvincia("ro");
             comuniVenezia = CsvReader.Instance.ComuniDaProvincia("ve");
             comuniVerona = CsvReader.Instance.ComuniDaProvincia("vr");
-            comuniVicenza = CsvReader.Instance.ComuniDaProvincia("vi");
+            comuniVicenza = CsvReader.Instance.ComuniDaProvincia("vi");*/
             vaiAGrafico = new DelegateCommand(_vaiAGrafico);
         }
 
@@ -143,18 +143,32 @@ namespace csvReading.ViewModel
             switch (prov)
             {
                 case "bl": 
+                    if(comuniBelluno==null)
+                        comuniBelluno = CsvReader.Instance.ComuniDaProvincia("bl");
                     Comuni = comuniBelluno; Prov="Belluno";break;
                 case "pd":
+                    if (comuniPadova == null)
+                        comuniPadova = CsvReader.Instance.ComuniDaProvincia("pd");
                     Comuni = comuniPadova; Prov = "Padova"; break;
                 case "ro":
+                    if (comuniRovigo == null)
+                        comuniRovigo = CsvReader.Instance.ComuniDaProvincia("ro");
                     Comuni = comuniRovigo; Prov="Rovigo";break;
                 case "tv":
+                    if (comuniTreviso == null)
+                        comuniTreviso = CsvReader.Instance.ComuniDaProvincia("tv");
                     Comuni = comuniTreviso; Prov="Treviso";break;
                 case "ve":
+                    if (comuniVenezia == null)
+                        comuniVenezia = CsvReader.Instance.ComuniDaProvincia("ve");
                     Comuni = comuniVenezia; Prov="Venezia";break;
                 case "vr":
+                    if (comuniVerona == null)
+                        comuniVerona = CsvReader.Instance.ComuniDaProvincia("vr");
                     Comuni = comuniVerona; Prov="Verona";break;
                 case "vi":
+                    if (comuniVicenza == null)
+                        comuniVicenza = CsvReader.Instance.ComuniDaProvincia("vi");
                     Comuni = comuniVicenza; Prov="Vicenza";break;
                 default:
                     Comuni = null; break;

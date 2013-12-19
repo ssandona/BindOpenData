@@ -65,7 +65,7 @@
     <Compile Include="City.xaml.cs">
       <DependentUpon>City.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CsvReader.cs" />
+    <Compile Include="Model\CsvReader.cs" />
     <Compile Include="Graph.xaml.cs">
       <DependentUpon>Graph.xaml</DependentUpon>
     </Compile>

@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 
-namespace csvReading
+namespace csvReading.Model
 {
     class CsvReader
     {
